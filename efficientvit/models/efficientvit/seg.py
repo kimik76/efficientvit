@@ -113,8 +113,10 @@ class EfficientViTSeg(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         feed_dict = self.backbone(x)
-        drivable = self.head1(feed_dict)
-        lane_line = self.head2(feed_dict)
+        feed_da = feed_dict.copy()
+        feed_ll = feed_dict.copy()
+        drivable = self.head1(feed_da)
+        lane_line = self.head2(feed_ll)
 
         return drivable["segout"], lane_line["segout"]
 
