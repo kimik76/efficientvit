@@ -105,27 +105,28 @@ class SegHead(DAGBlock):
 
 
 class EfficientViTSeg(nn.Module):
-    def __init__(self, backbone: EfficientViTBackbone or EfficientViTLargeBackbone, head: SegHead) -> None:
+    def __init__(self, backbone: EfficientViTBackbone or EfficientViTLargeBackbone, head1: SegHead, head2: SegHead) -> None:
         super().__init__()
         self.backbone = backbone
-        self.head = head
+        self.head1 = head1
+        self.head2 = head2 
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         feed_dict = self.backbone(x)
-        feed_dict = self.head(feed_dict)
+        drivable = self.head1(feed_dict)
+        lane_line = self.head2(feed_dict)
 
-        return feed_dict["segout"]
+        return drivable["segout"], lane_line["segout"]
 
 
 def efficientvit_seg_b0(dataset: str, **kwargs) -> EfficientViTSeg:
     from efficientvit.models.efficientvit.backbone import efficientvit_backbone_b0
 
     backbone = efficientvit_backbone_b0(**kwargs)
-
-    if dataset == "cityscapes":
-        head = SegHead(
+    if dataset == "bdd":
+        head1 = SegHead(
             fid_list=["stage4", "stage3", "stage2"],
-            in_channel_list=[128, 64, 32],
+            in_channel_list=[96, 64, 32],
             stride_list=[32, 16, 8],
             head_stride=8,
             head_width=32,
@@ -136,9 +137,36 @@ def efficientvit_seg_b0(dataset: str, **kwargs) -> EfficientViTSeg:
             n_classes=19,
             **build_kwargs_from_config(kwargs, SegHead),
         )
+        head2 = SegHead(
+            fid_list=["stage4", "stage3", "stage2"],
+            in_channel_list=[96, 64, 32],
+            stride_list=[32, 16, 8],
+            head_stride=8,
+            head_width=32,
+            head_depth=1,
+            expand_ratio=4,
+            middle_op="mbconv",
+            final_expand=4,
+            n_classes=2,
+            **build_kwargs_from_config(kwargs, SegHead),
+        )
+    elif dataset == "cityscapes":
+        head = SegHead(
+            fid_list=["stage4", "stage3", "stage2"],
+            in_channel_list=[128, 64, 32],
+            stride_list=[32, 16, 8],
+            head_stride=8,
+            head_width=32,
+            head_depth=2,
+            expand_ratio=4,
+            middle_op="mbconv",
+            final_expand=4,
+            n_classes=2,
+            **build_kwargs_from_config(kwargs, SegHead),
+        )
     else:
         raise NotImplementedError
-    model = EfficientViTSeg(backbone, head)
+    model = EfficientViTSeg(backbone, head1, head2)
     return model
 
 
