@@ -20,7 +20,7 @@ __all__ = ["create_seg_model"]
 REGISTERED_SEG_MODEL: dict[str, dict[str, str]] = {
     "bdd": {
         "b0": "assets/checkpoints/seg/cityscapes/b0.pt",
-    }
+    },
     "cityscapes": {
         "b0": "assets/checkpoints/seg/cityscapes/b0.pt",
         "b1": "assets/checkpoints/seg/cityscapes/b1.pt",
