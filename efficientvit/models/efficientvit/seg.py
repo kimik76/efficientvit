@@ -128,7 +128,7 @@ def efficientvit_seg_b0(dataset: str, **kwargs) -> EfficientViTSeg:
     if dataset == "bdd":
         head1 = SegHead(
             fid_list=["stage4", "stage3", "stage2"],
-            in_channel_list=[96, 64, 32],
+            in_channel_list=[128, 64, 32],
             stride_list=[32, 16, 8],
             head_stride=8,
             head_width=32,
