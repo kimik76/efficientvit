@@ -160,7 +160,7 @@ class EfficientViTBackbone(nn.Module):
 
 def efficientvit_backbone_b0(**kwargs) -> EfficientViTBackbone:
     backbone = EfficientViTBackbone(
-        width_list=[8, 16, 32, 64, 96],
+        width_list=[8, 16, 32, 64, 128],
         depth_list=[1, 2, 2, 2, 2],
         dim=16,
         **build_kwargs_from_config(kwargs, EfficientViTBackbone),
