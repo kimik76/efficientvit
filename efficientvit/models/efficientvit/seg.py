@@ -90,23 +90,13 @@ class SegHead(DAGBlock):
                     else ConvLayer(head_width, head_width * final_expand, 1, norm=norm, act_func=act_func),
                     ConvLayer(
                         head_width * (final_expand or 1),
-                        head_width * (final_expand or 1) * 2,
-                        1,
-                        use_bias=True,
-                        dropout=dropout,
-                        norm=None,
-                        act_func=None,
-                    ),
-                    # nn.Upsample(scale_factor=2, mode='nearest'),
-                    ConvLayer(
-                        head_width * (final_expand or 1) * 2,
                         n_classes,
                         1,
                         use_bias=True,
                         dropout=dropout,
                         norm=None,
                         act_func=None,
-                    )
+                    ),
                 ]
             )
         }
