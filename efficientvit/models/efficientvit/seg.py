@@ -97,7 +97,7 @@ class SegHead(DAGBlock):
                         norm=None,
                         act_func=None,
                     ),
-                    nn.Upsample(scale_factor=2, mode='nearest'),
+                    # nn.Upsample(scale_factor=2, mode='nearest'),
                     ConvLayer(
                         head_width * 8,
                         n_classes,
