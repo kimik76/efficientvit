@@ -97,6 +97,9 @@ class SegHead(DAGBlock):
                         norm=None,
                         act_func=None,
                     ),
+                    nn.Conv2d(128, 256, kernel_size=3, stride=1, padding=1),
+                    nn.Upsample(scale_factor=2, mode='nearest'),
+                    nn.Conv2d(256, 2, kernel_size=3, stride=1, padding=1),
                 ]
             )
         }
