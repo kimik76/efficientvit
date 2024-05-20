@@ -562,7 +562,7 @@ class DAGBlock(nn.Module):
         feat = self.middle(feat)
         for key, op in zip(self.output_keys, self.output_ops):
             feature_dict[key] = op(feat)
-        return feature_dict, feat
+        return feature_dict
 
 
 class OpSequential(nn.Module):
