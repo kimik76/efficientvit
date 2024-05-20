@@ -4,7 +4,7 @@
 
 import torch
 import torch.nn as nn
-
+import torch.nn.functional as F
 from efficientvit.models.efficientvit.backbone import EfficientViTBackbone, EfficientViTLargeBackbone
 from efficientvit.models.nn import (
     ConvLayer,
@@ -17,7 +17,7 @@ from efficientvit.models.nn import (
     UpSampleLayer,
 )
 from efficientvit.models.utils import build_kwargs_from_config
-
+from discriminator import FCDiscriminator
 __all__ = [
     "EfficientViTSeg",
     "efficientvit_seg_b0",
@@ -109,10 +109,22 @@ class EfficientViTSeg(nn.Module):
         super().__init__()
         self.backbone = backbone
         self.head1 = head1
-        self.head2 = head2 
+        self.head2 = head2
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+
+
+    def forward(self, x: torch.Tensor, discriminator, domain) -> torch.Tensor:
         feed_dict = self.backbone(x)
+        if domain == 'target':
+            stage4=feed_dict['stage4'].copy()
+            d_stage4 =discriminator(stage4)
+            d_stage4 = F.tanh(d_stage4)
+            d_stage4 = torch.abs(d_stage4)
+            stage4_big = d_stage4.expand(stage4.size())
+            feed_dict['stage4'] = stage4_big * stage4 + stage4
+            feed_dict['stage_final'] = feed_dict['stage4']
+        if domain == 'source':
+            pass
         feed_da = feed_dict.copy()
         feed_ll = feed_dict.copy()
         drivable = self.head1(feed_da)
