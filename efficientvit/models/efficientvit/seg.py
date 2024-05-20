@@ -17,7 +17,7 @@ from efficientvit.models.nn import (
     UpSampleLayer,
 )
 from efficientvit.models.utils import build_kwargs_from_config
-from discriminator import FCDiscriminator
+# from discriminator import FCDiscriminator
 __all__ = [
     "EfficientViTSeg",
     "efficientvit_seg_b0",
