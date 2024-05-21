@@ -4,16 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9b1f4b0-8074-4b59-a37e-e11cf5dcdbae" name="Changes" comment="efforts for bigger output" />
+    <list default="true" id="f9b1f4b0-8074-4b59-a37e-e11cf5dcdbae" name="Changes" comment="efforts for bigger output">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/efficientvit/models/efficientvit/seg.py" beforeDir="false" afterPath="$PROJECT_DIR$/efficientvit/models/efficientvit/seg.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="build_2" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,12 +48,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/study/semester4/efficientvit"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;disc-domain-adpation&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/study/semester4/efficientvit&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\study\semester4\efficientvit\efficientvit" />
+      <recent name="D:\study\semester4\efficientvit\efficientvit\models" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -116,11 +134,86 @@
       <option name="project" value="LOCAL" />
       <updated>1716124227968</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="efforts for bigger output">
+      <option name="closed" value="true" />
+      <created>1716192588208</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716192588208</updated>
+    </task>
+    <task id="LOCAL-00009" summary="efforts for bigger output">
+      <option name="closed" value="true" />
+      <created>1716204289356</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716204289356</updated>
+    </task>
+    <task id="LOCAL-00010" summary="efforts for bigger output">
+      <option name="closed" value="true" />
+      <created>1716204592345</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716204592345</updated>
+    </task>
+    <task id="LOCAL-00011" summary="efforts for bigger output">
+      <option name="closed" value="true" />
+      <created>1716211970575</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716211970575</updated>
+    </task>
+    <task id="LOCAL-00012" summary="efforts for bigger output">
+      <option name="closed" value="true" />
+      <created>1716212249592</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716212249592</updated>
+    </task>
+    <task id="LOCAL-00013" summary="efforts for bigger output">
+      <option name="closed" value="true" />
+      <created>1716213526391</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716213526391</updated>
+    </task>
+    <task id="LOCAL-00014" summary="efforts for bigger output">
+      <option name="closed" value="true" />
+      <created>1716213818415</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716213818415</updated>
+    </task>
+    <task id="LOCAL-00015" summary="efforts for bigger output">
+      <option name="closed" value="true" />
+      <created>1716214318929</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716214318929</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="efforts for bigger output" />
     <option name="LAST_COMMIT_MESSAGE" value="efforts for bigger output" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/Desktop/efficientvit/efficientvit/models/efficientvit/seg.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -130,7 +130,7 @@ class EfficientViTSeg(nn.Module):
         drivable = self.head1(feed_da)
         lane_line = self.head2(feed_ll)
 
-        return drivable["segout"], lane_line["segout"]
+        return feed_dict['stage_final'], [drivable["segout"], lane_line["segout"]]
 
 
 def efficientvit_seg_b0(dataset: str, **kwargs) -> EfficientViTSeg:
