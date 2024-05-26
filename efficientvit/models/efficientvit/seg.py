@@ -115,8 +115,8 @@ class EfficientViTSeg(nn.Module):
 
     def forward(self, x: torch.Tensor, discriminator, domain) -> torch.Tensor:
         feed_dict = self.backbone(x)
+        stage4 = feed_dict['stage4'].clone()
         if domain == 'target':
-            stage4=feed_dict['stage4'].clone()
             d_stage4 =discriminator(stage4)
             d_stage4 = F.tanh(d_stage4)
             d_stage4 = torch.abs(d_stage4)
