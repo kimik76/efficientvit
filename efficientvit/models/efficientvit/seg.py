@@ -117,7 +117,7 @@ class EfficientViTSeg(nn.Module):
         feed_dict = self.backbone(x)
         stage4 = feed_dict['stage4'].clone()
         if domain == 'target':
-            d_stage4 =discriminator(stage4)
+            d_stage4 =discriminator[0](stage4)
             d_stage4 = F.tanh(d_stage4)
             d_stage4 = torch.abs(d_stage4)
             stage4_big = d_stage4.expand(stage4.size())
