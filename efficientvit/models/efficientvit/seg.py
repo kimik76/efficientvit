@@ -124,13 +124,14 @@ class EfficientViTSeg(nn.Module):
             feed_dict['stage4'] = stage4_big * stage4 + stage4
             feed_dict['stage_final'] = feed_dict['stage4']
         if domain == 'source':
-            pass
+            feed_dict['stage4'] = stage4
+            feed_dict['stage_final'] = feed_dict['stage4']
         feed_da = feed_dict.copy()
         feed_ll = feed_dict.copy()
         drivable = self.head1(feed_da)
         lane_line = self.head2(feed_ll)
 
-        return feed_dict['stage_final'], [drivable["segout"], lane_line["segout"]]
+        return stage4, [drivable["segout"], lane_line["segout"]]
 
 
 def efficientvit_seg_b0(dataset: str, **kwargs) -> EfficientViTSeg:
